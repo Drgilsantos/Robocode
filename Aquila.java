@@ -1,4 +1,4 @@
-package Aguia;
+package Aquilas;
 import robocode.*;
 //import java.awt.Color;
 
@@ -23,11 +23,12 @@ public class Aquila extends Robot
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnRight(90);
 			ahead(150);
-			turnGunRight(90);
-			fire(1);
+			turnRight(180);
+			turnLeft(90);
+			ahead(400);
+			back(80);
+			turnRadarRight(200);
 		}
 	}
 
@@ -37,44 +38,42 @@ public class Aquila extends Robot
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
 		fire(1);
-		ahead(500);
-		turnRight(90);
+		ahead(50); 
+		turnRight(180);
+		
 	}
+	// esquivar 
+	private void esquivar() {
+        back(0);
+        turnRight(45);
+        ahead(100);
+    }
+
 
 	/**
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(250);
+		back(50);
+		ahead(300);
 		turnGunRight(90);
-		ahead(500);
-		turnGunRight(90);
-		back(100);
-		turnRight(90);
-		turnGunLeft(60);
+		turnRadarRight(360);
 	}
-		public void onHitRobot(HitRobotEvent e) {
-		// Replace the next line with any behavior you would like
-		ahead(500);
-		turnRight(90);
-		ahead(500);
-		turnRight(90);
-		ahead(500);
-		turnRight(90);
-		ahead(500);
-		turnRight(90);
-	}
+	
 	/**
 	 * onHitWall: What to do when you hit a wall
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-		back(100);
-		turnRight(90); 
-		ahead(500);
-		turnGunRight(90);
-		
-		
-	}	
+		back(20);
+		turnRight(270);
+		ahead(450);
+	}
+	// afastar da parede
+	 private void afastarDaParede() {
+        back(50);
+        turnRight(90);
+        ahead(150);
+    }	
 }
